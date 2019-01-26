@@ -1,0 +1,3 @@
+rootProject.name = 'demo-k8s'
+include 'client'
+include 'server'
