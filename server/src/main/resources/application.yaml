@@ -3,11 +3,7 @@ spring:
     name: greeting-server
 
 server:
-  port: ${PORT:0}
-
-eureka:
-  instance:
-    instance-id: ${spring.application.name}-${random.int}
+  port: 8080
 
 management:
   endpoints:

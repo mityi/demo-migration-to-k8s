@@ -30,6 +30,7 @@ public class ClientApplication {
 @RequiredArgsConstructor
 class ClientController {
 
+    //    private final KubernetesClient kubernetesClient;
     private final GreetingClient client;
     private final DiscoveryClient discoveryClient;
     @Value("${services.greeting-server}")

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-tag
+  template:
+    metadata:
+      labels:
+        app: client-tag
+    spec:
+      containers:
+        - image: hub.docker.com/mityi/demo-service-discovery-client:0.0.1
+          name: demo-service-discovery-client
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: server-tag
+  template:
+    metadata:
+      labels:
+        app: server-tag
+    spec:
+      containers:
+        - image: hub.docker.com/mityi/demo-service-discovery-server:0.0.1
+          name: demo-service-discovery-server

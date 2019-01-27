@@ -1,2 +1,4 @@
-./gradlew clean build
-java -jar ./tool/eureka.jar
+./gradlew clean build docker
+
+kubectl delete -f ./charts
+kubectl apply -f ./charts
