@@ -3,7 +3,7 @@ spring:
     name: greeting-server
 
 server:
-  port: 8080
+  port: 8081
 
 management:
   endpoints:
@@ -14,3 +14,5 @@ management:
     health:
       enabled: true
 
+
+eureka.client.enabled: true

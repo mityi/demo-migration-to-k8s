@@ -1,0 +1,39 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: greeting-server
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8081
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: greeting-server
+subsets:
+  - addresses:
+      - ip: 192.168.1.38
+    ports:
+      - port: 8081
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: greeting-client
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: greeting-client
+subsets:
+  - addresses:
+      - ip: 192.168.1.38
+    ports:
+      - port: 8080

@@ -16,3 +16,7 @@ management:
 
 services:
   greeting-server: greeting-server
+
+
+spring.cloud.kubernetes.enabled: false
+eureka.client.enabled: true

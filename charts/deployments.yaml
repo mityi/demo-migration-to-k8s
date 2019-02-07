@@ -31,6 +31,17 @@ spec:
             initialDelaySeconds: 20
             periodSeconds: 5
             failureThreshold: 5
+          volumeMounts:
+            - mountPath: "/config/"
+              name: config-volume
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: example-volume-configmap
+            items:
+              - key: application.properties
+                path: application.properties
 
 ---
 apiVersion: apps/v1
@@ -66,3 +77,15 @@ spec:
             initialDelaySeconds: 20
             periodSeconds: 5
             failureThreshold: 5
+          volumeMounts:
+            - mountPath: "/config/"
+              name: config-volume
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: example-volume-configmap
+            items:
+              - key: application.properties
+                path: application.properties
+
