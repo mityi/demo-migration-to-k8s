@@ -16,9 +16,3 @@ management:
 
 services:
   greeting-server: greeting-server
-
-zuul:
-  routes:
-    greeting-server-rout:
-      path: /server/**
-      serviceId: ${services.greeting-server}

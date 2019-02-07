@@ -7,8 +7,8 @@ build & run:
 
 check:
 ```
-curl localhost:8080/hi
-curl localhost:8080/server/greeting
+curl jug.nsk.ru/hi
+curl jug.nsk.ru/server/greeting
 ```
 
 utils:
@@ -19,4 +19,6 @@ k get services
 k logs -f deployment/client-app
 k get deployment client-app -o yaml --export
 k get service greeting-client -o yaml --export
+#
+helm install stable/nginx-ingress --name my-nginx
 ```  

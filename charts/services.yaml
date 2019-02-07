@@ -18,7 +18,7 @@ metadata:
 spec:
   selector:
     app: client-tag
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 8080
