@@ -15,6 +15,23 @@ spec:
       containers:
         - image: hub.docker.com/mityi/demo-service-discovery-client:0.0.1
           name: demo-service-discovery-client
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            failureThreshold: 5
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -33,3 +50,19 @@ spec:
       containers:
         - image: hub.docker.com/mityi/demo-service-discovery-server:0.0.1
           name: demo-service-discovery-server
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            failureThreshold: 5
