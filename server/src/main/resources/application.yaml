@@ -1,9 +1,15 @@
 spring:
   application:
     name: greeting-server
-
-server:
-  port: 8081
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
+      config:
+        sources:
+          - name: ${spring.application.name}
 
 management:
   endpoints:
@@ -13,6 +19,5 @@ management:
       enabled: true
     health:
       enabled: true
-
-
-eureka.client.enabled: true
+    restart:
+      enabled: true

@@ -20,7 +20,7 @@ subprojects {
     apply plugin: 'com.palantir.docker'
 
     group = 'ru.fxf'
-    version = '0.0.1'
+    version = '0.0.2'
     sourceCompatibility = JavaVersion.VERSION_1_8
 
     dependencyManagement {

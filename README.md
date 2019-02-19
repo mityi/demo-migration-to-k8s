@@ -3,7 +3,6 @@
 build & run:
 ```
 ./deploy.sh
-./deploy-local.sh
  ```
 
 check:

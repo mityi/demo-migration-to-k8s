@@ -13,7 +13,7 @@ spec:
         app: client-tag
     spec:
       containers:
-        - image: hub.docker.com/mityi/demo-service-discovery-client:0.0.1
+        - image: hub.docker.com/mityi/demo-service-discovery-client:0.0.2
           name: demo-service-discovery-client
           readinessProbe:
             httpGet:
@@ -31,18 +31,6 @@ spec:
             initialDelaySeconds: 20
             periodSeconds: 5
             failureThreshold: 5
-          volumeMounts:
-            - mountPath: "/config/"
-              name: config-volume
-              readOnly: true
-      volumes:
-        - name: config-volume
-          configMap:
-            name: example-volume-configmap
-            items:
-              - key: application.properties
-                path: application.properties
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -59,7 +47,7 @@ spec:
         app: server-tag
     spec:
       containers:
-        - image: hub.docker.com/mityi/demo-service-discovery-server:0.0.1
+        - image: hub.docker.com/mityi/demo-service-discovery-server:0.0.2
           name: demo-service-discovery-server
           readinessProbe:
             httpGet:
@@ -77,15 +65,3 @@ spec:
             initialDelaySeconds: 20
             periodSeconds: 5
             failureThreshold: 5
-          volumeMounts:
-            - mountPath: "/config/"
-              name: config-volume
-              readOnly: true
-      volumes:
-        - name: config-volume
-          configMap:
-            name: example-volume-configmap
-            items:
-              - key: application.properties
-                path: application.properties
-
